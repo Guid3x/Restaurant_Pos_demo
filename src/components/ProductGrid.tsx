@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Search, Plus, X } from 'lucide-react';
+import { Plus, X } from 'lucide-react';
 import SearchBar from './SearchBar';
 
 type Product = {

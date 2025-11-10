@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ShoppingCart, Search, Settings, Clock, Menu, Coffee, QrCode, Star } from 'lucide-react';
+import { ShoppingCart, Settings, Clock, Coffee, QrCode, Star } from 'lucide-react';
 import Numpad from './components/Numpad';
 import CartItems from './components/CartItems';
 import ProductGrid from './components/ProductGrid';
@@ -14,8 +14,6 @@ export type CartItem = {
 
 const App: React.FC = () => {
   const [cart, setCart] = useState<CartItem[]>([]);
-  const [activeInput, setActiveInput] = useState<'quantity' | 'price' | null>(null);
-  const [inputValue, setInputValue] = useState('');
   const [loyaltyPoints, setLoyaltyPoints] = useState(150);
   const [showScanner, setShowScanner] = useState(false);
   const [showPaymentModal, setShowPaymentModal] = useState(false);
@@ -35,14 +33,8 @@ const App: React.FC = () => {
     });
   };
 
-  const handleNumpadInput = (value: string) => {
-    if (!activeInput) return;
-    setInputValue(prev => {
-      if (value === 'backspace') return prev.slice(0, -1);
-      if (value === 'clear') return '';
-      if (value === '.' && prev.includes('.')) return prev;
-      return prev + value;
-    });
+  const handleNumpadInput = () => {
+    // Numpad input handling removed as variables were unused
   };
 
   const handlePayment = (paymentType: string) => {
